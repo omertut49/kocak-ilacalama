@@ -1,0 +1,999 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koçak Haşere İlaçlama – Mersin'in 1 Numarası</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --y:#FFD600;
+  --yd:#C9A800;
+  --yl:#FFFBE0;
+  --bk:#0A0A0A;
+  --bk2:#141414;
+  --bk3:#1C1C1C;
+  --bk4:#252525;
+  --wh:#FFFFFF;
+  --gr:#888;
+  --grl:#EEEEEE;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--bk);color:var(--wh);overflow-x:hidden;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bk);}
+::-webkit-scrollbar-thumb{background:var(--y);border-radius:3px;}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  background:var(--y);
+  padding:9px 5%;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;font-weight:700;color:var(--bk);letter-spacing:.3px;
+  position:relative;z-index:200;
+}
+.tb-left{display:flex;gap:28px;}
+.tb-item{display:flex;align-items:center;gap:6px;}
+.tb-right a{
+  background:var(--bk);color:var(--y);
+  padding:5px 16px;border-radius:4px;
+  text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.5px;
+}
+
+/* ===== NAV ===== */
+nav{
+  background:rgba(10,10,10,0.97);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,214,0,0.15);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:76px;
+  position:sticky;top:0;z-index:190;
+  transition:background .3s;
+}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.logo img{
+  height:52px;width:52px;object-fit:cover;
+  border-radius:50%;
+  border:2px solid var(--y);
+  box-shadow:0 0 16px rgba(255,214,0,0.3);
+}
+.logo-txt{line-height:1;}
+.logo-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:24px;letter-spacing:2.5px;color:var(--wh);
+}
+.logo-name span{color:var(--y);}
+.logo-sub{font-size:9.5px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+nav ul{display:flex;gap:32px;list-style:none;}
+nav ul a{
+  color:rgba(255,255,255,0.7);text-decoration:none;
+  font-size:13px;font-weight:600;letter-spacing:.4px;
+  transition:color .2s;position:relative;
+}
+nav ul a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:2px;background:var(--y);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s;
+}
+nav ul a:hover{color:var(--y);}
+nav ul a:hover::after{transform:scaleX(1);}
+.nav-cta{
+  background:var(--y);color:var(--bk);
+  padding:10px 24px;border-radius:6px;
+  font-weight:800;font-size:13px;letter-spacing:.3px;
+  text-decoration:none;display:flex;align-items:center;gap:7px;
+  transition:background .2s,transform .15s;
+  box-shadow:0 0 20px rgba(255,214,0,0.25);
+}
+.nav-cta:hover{background:var(--yd);transform:translateY(-1px);}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  background:var(--bk);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding-bottom:100px;
+}
+/* Animated BG */
+.hero-bg-anim{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 70% 40%, rgba(255,214,0,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 500px 400px at 10% 80%, rgba(255,214,0,0.04) 0%, transparent 50%);
+  animation:bgPulse 6s ease-in-out infinite alternate;
+}
+@keyframes bgPulse{
+  0%{opacity:.6;}100%{opacity:1;}
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,214,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,214,0,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(60px,60px);}
+}
+.hero-inner{
+  position:relative;z-index:2;
+  padding:0 5%;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+/* Left */
+.hero-tag{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid rgba(255,214,0,0.35);
+  background:rgba(255,214,0,0.07);
+  border-radius:100px;padding:7px 18px;
+  font-size:11px;color:var(--y);font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:28px;
+  animation:fadeSlideUp .7s ease both;
+}
+.hero-tag-dot{width:7px;height:7px;background:var(--y);border-radius:50%;animation:blink 1.5s ease infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(58px,8vw,100px);
+  line-height:.92;letter-spacing:2px;color:var(--wh);
+  margin-bottom:10px;
+  animation:fadeSlideUp .8s .1s ease both;
+}
+.hero h1 .y{color:var(--y);}
+.hero h1 .stroke{
+  -webkit-text-stroke:2px var(--y);
+  color:transparent;
+}
+.hero-desc{
+  font-size:16px;color:rgba(255,255,255,0.55);
+  line-height:1.85;max-width:480px;margin-bottom:40px;
+  font-weight:400;
+  animation:fadeSlideUp .9s .2s ease both;
+}
+.hero-desc strong{color:rgba(255,255,255,.85);font-weight:700;}
+.hero-btns{
+  display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;
+  animation:fadeSlideUp 1s .3s ease both;
+}
+.btn-y{
+  background:var(--y);color:var(--bk);
+  padding:16px 38px;border-radius:7px;
+  font-weight:800;font-size:14px;letter-spacing:.3px;
+  text-decoration:none;display:flex;align-items:center;gap:9px;
+  box-shadow:0 8px 30px rgba(255,214,0,0.35);
+  transition:all .2s;
+}
+.btn-y:hover{background:var(--yd);transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,214,0,0.45);}
+.btn-outline{
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,0.2);
+  color:var(--wh);padding:16px 34px;border-radius:7px;
+  font-weight:600;font-size:14px;
+  text-decoration:none;display:flex;align-items:center;gap:9px;
+  transition:all .2s;
+}
+.btn-outline:hover{border-color:rgba(255,214,0,.5);color:var(--y);}
+.hero-kpis{
+  display:flex;gap:36px;
+  animation:fadeSlideUp 1s .4s ease both;
+}
+.kpi{border-left:3px solid var(--y);padding-left:14px;}
+.kpi-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:36px;color:var(--y);letter-spacing:1px;line-height:1;
+}
+.kpi-l{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+
+/* Right */
+.hero-right{
+  display:flex;justify-content:center;align-items:center;
+  animation:fadeIn 1.2s .2s ease both;
+}
+.logo-showcase{
+  position:relative;
+  width:420px;height:420px;
+  display:flex;align-items:center;justify-content:center;
+}
+.ring{
+  position:absolute;border-radius:50%;border:1px solid rgba(255,214,0,.12);
+  animation:ringPulse 3s ease-in-out infinite;
+}
+.ring-1{width:360px;height:360px;animation-delay:0s;}
+.ring-2{width:300px;height:300px;animation-delay:.6s;border-color:rgba(255,214,0,.18);}
+.ring-3{width:240px;height:240px;animation-delay:1.2s;border-color:rgba(255,214,0,.25);}
+@keyframes ringPulse{
+  0%,100%{transform:scale(1);opacity:.6;}
+  50%{transform:scale(1.04);opacity:1;}
+}
+.logo-center{
+  position:relative;z-index:2;
+  width:200px;height:200px;border-radius:50%;
+  overflow:hidden;
+  border:4px solid var(--y);
+  box-shadow:0 0 60px rgba(255,214,0,0.4), 0 0 120px rgba(255,214,0,0.15);
+  animation:logoPop 1s .4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes logoPop{
+  0%{transform:scale(0.5);opacity:0;}
+  100%{transform:scale(1);opacity:1;}
+}
+.logo-center img{width:100%;height:100%;object-fit:cover;}
+/* Floating badges */
+.fbadge{
+  position:absolute;
+  background:var(--bk2);
+  border:1px solid rgba(255,214,0,0.3);
+  border-radius:10px;padding:10px 16px;
+  font-size:12px;font-weight:700;color:var(--wh);
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  white-space:nowrap;
+  animation:float 4s ease-in-out infinite;
+}
+.fbadge-1{top:8%;left:-10%;animation-delay:0s;}
+.fbadge-2{top:8%;right:-8%;animation-delay:1s;}
+.fbadge-3{bottom:12%;left:-15%;animation-delay:2s;}
+.fbadge-4{bottom:12%;right:-10%;animation-delay:.5s;}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+.fbadge-dot{width:8px;height:8px;background:#4CAF50;border-radius:50;flex-shrink:0;}
+
+/* SCROLL STRIP */
+.scroll-strip{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--y);
+  height:52px;display:flex;align-items:center;overflow:hidden;
+}
+.scroll-track{
+  display:flex;gap:0;
+  animation:scrollTrack 20s linear infinite;
+  white-space:nowrap;
+}
+@keyframes scrollTrack{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.scroll-item{
+  padding:0 36px;font-size:12px;font-weight:800;
+  color:var(--bk);letter-spacing:1px;text-transform:uppercase;
+  display:flex;align-items:center;gap:12px;
+}
+.scroll-sep{width:6px;height:6px;background:var(--bk);border-radius:50%;flex-shrink:0;}
+
+/* TRUST BAR */
+.trust-bar{
+  background:var(--bk2);
+  padding:30px 5%;
+  display:flex;gap:0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.trust-item{
+  flex:1;display:flex;align-items:center;gap:14px;
+  padding:0 28px;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.trust-item:last-child{border-right:none;}
+.trust-icon{
+  width:44px;height:44px;background:rgba(255,214,0,.1);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+  border:1px solid rgba(255,214,0,.2);
+}
+.trust-text h4{font-size:14px;font-weight:700;color:var(--wh);margin-bottom:2px;}
+.trust-text p{font-size:12px;color:var(--gr);}
+
+/* SERVICES */
+.services{background:var(--bk3);padding:100px 5%;}
+.sec-head{margin-bottom:60px;}
+.sec-tag{
+  display:inline-block;
+  font-size:11px;text-transform:uppercase;letter-spacing:2.5px;
+  color:var(--y);font-weight:700;margin-bottom:14px;
+}
+.sec-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,6vw,64px);
+  color:var(--wh);letter-spacing:2px;line-height:.95;
+  margin-bottom:16px;
+}
+.sec-title span{color:var(--y);}
+.sec-sub{font-size:15px;color:var(--gr);max-width:520px;line-height:1.8;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.svc-card{
+  background:var(--bk4);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:36px 28px;
+  position:relative;overflow:hidden;
+  cursor:pointer;
+  transition:all .3s;
+}
+.svc-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:var(--y);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.svc-card:hover{
+  border-color:rgba(255,214,0,.2);
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  background:rgba(255,214,0,.03);
+}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-card-num{
+  position:absolute;top:20px;right:24px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;color:rgba(255,214,0,.06);
+  letter-spacing:2px;line-height:1;
+}
+.svc-ico{
+  width:58px;height:58px;
+  background:rgba(255,214,0,.08);
+  border:1px solid rgba(255,214,0,.2);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;margin-bottom:20px;
+  transition:background .3s;
+}
+.svc-card:hover .svc-ico{background:rgba(255,214,0,.15);}
+.svc-card h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:24px;letter-spacing:1px;color:var(--wh);
+  margin-bottom:10px;
+}
+.svc-card p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.8;}
+.svc-badge{
+  display:inline-block;margin-top:18px;
+  background:rgba(255,214,0,.1);
+  border:1px solid rgba(255,214,0,.2);
+  color:var(--y);font-size:11px;font-weight:700;
+  padding:4px 12px;border-radius:100px;letter-spacing:.5px;
+}
+
+/* WHY */
+.why{background:var(--bk);padding:100px 5%;}
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:60px;
+}
+.why-card{
+  background:var(--bk3);border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;padding:30px 24px;
+  transition:all .3s;cursor:default;
+}
+.why-card:hover{
+  border-color:rgba(255,214,0,.25);
+  background:rgba(255,214,0,.03);
+  transform:translateY(-4px);
+}
+.why-ico{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(255,214,0,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:16px;
+  border:1px solid rgba(255,214,0,.15);
+}
+.why-card h4{font-size:15px;font-weight:700;color:var(--wh);margin-bottom:10px;}
+.why-card p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.8;}
+
+/* AREAS */
+.areas{background:var(--bk2);padding:100px 5%;}
+.areas-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  margin-top:60px;
+}
+.area-box{
+  background:var(--bk3);border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:28px 20px;text-align:center;
+  transition:all .3s;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.area-box::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:2px;
+  background:var(--y);transform:scaleX(0);
+  transition:transform .3s;
+}
+.area-box:hover{
+  background:rgba(255,214,0,.05);
+  border-color:rgba(255,214,0,.3);
+  transform:translateY(-4px);
+}
+.area-box:hover::after{transform:scaleX(1);}
+.area-ico{
+  font-size:32px;margin-bottom:12px;
+  display:block;
+  transition:transform .3s;
+}
+.area-box:hover .area-ico{transform:scale(1.2);}
+.area-name{font-size:14px;font-weight:700;color:rgba(255,255,255,.75);}
+
+/* PROCESS */
+.process{background:var(--bk);padding:100px 5%;}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin-top:60px;position:relative;
+}
+.process-steps::before{
+  content:'';position:absolute;
+  top:36px;left:12%;right:12%;height:2px;
+  background:linear-gradient(90deg,var(--y),rgba(255,214,0,.3));
+}
+.step{text-align:center;padding:0 20px;position:relative;}
+.step-circle{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--y);display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--bk);
+  box-shadow:0 0 0 10px rgba(255,214,0,.1), 0 0 0 20px rgba(255,214,0,.05);
+  position:relative;z-index:1;
+}
+.step h3{font-size:15px;font-weight:700;color:var(--wh);margin-bottom:8px;}
+.step p{font-size:13px;color:var(--gr);line-height:1.7;}
+
+/* CTA */
+.cta{
+  background:var(--y);
+  padding:80px 5%;
+  position:relative;overflow:hidden;
+}
+.cta-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 600px 400px at 80% 50%, rgba(255,255,255,.12) 0%, transparent 60%);
+}
+.cta-inner{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:32px;
+}
+.cta h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,5vw,60px);
+  color:var(--bk);letter-spacing:2px;line-height:1;
+  max-width:600px;
+}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-bk{
+  background:var(--bk);color:var(--y);
+  padding:17px 42px;border-radius:7px;
+  font-weight:800;font-size:14px;letter-spacing:.3px;
+  text-decoration:none;display:flex;align-items:center;gap:9px;
+  transition:all .2s;
+  box-shadow:0 8px 30px rgba(0,0,0,.3);
+}
+.btn-bk:hover{background:#222;transform:translateY(-2px);}
+.btn-wh{
+  background:var(--wh);color:var(--bk);
+  padding:17px 36px;border-radius:7px;
+  font-weight:800;font-size:14px;
+  text-decoration:none;display:flex;align-items:center;gap:9px;
+  transition:all .2s;
+}
+.btn-wh:hover{background:#f0f0f0;transform:translateY(-2px);}
+
+/* REVIEWS */
+.reviews{background:var(--bk3);padding:100px 5%;}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:60px;
+}
+.review-card{
+  background:var(--bk4);border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:28px 24px;
+  transition:transform .2s;
+}
+.review-card:hover{transform:translateY(-3px);}
+.stars{color:var(--y);font-size:14px;margin-bottom:14px;letter-spacing:2px;}
+.review-card p{
+  font-size:14px;color:rgba(255,255,255,.6);
+  line-height:1.85;font-style:italic;margin-bottom:20px;
+}
+.reviewer{display:flex;align-items:center;gap:12px;}
+.rev-av{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--y);display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--bk);
+}
+.rev-name{font-size:14px;font-weight:700;color:var(--wh);}
+.rev-loc{font-size:12px;color:var(--gr);}
+
+/* FOOTER */
+footer{background:#050505;padding:70px 5% 28px;}
+.footer-top{
+  display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:48px;
+  margin-bottom:50px;padding-bottom:50px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.f-logo{display:flex;align-items:center;gap:13px;margin-bottom:18px;}
+.f-logo img{
+  width:46px;height:46px;border-radius:50%;object-fit:cover;
+  border:2px solid var(--y);
+}
+.f-logo-txt .f-name{
+  font-family:'Bebas Neue',sans-serif;font-size:22px;
+  letter-spacing:2px;color:var(--wh);
+}
+.f-logo-txt .f-name span{color:var(--y);}
+.f-logo-txt .f-sub{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;}
+footer .f-desc{font-size:13.5px;color:rgba(255,255,255,.4);line-height:1.9;max-width:290px;margin-bottom:22px;}
+.f-socials{display:flex;gap:10px;}
+.f-social{
+  width:38px;height:38px;border:1px solid rgba(255,255,255,.1);
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.4);text-decoration:none;font-size:15px;
+  transition:all .2s;
+}
+.f-social:hover{background:var(--y);color:var(--bk);border-color:var(--y);}
+footer h4{
+  font-size:11px;text-transform:uppercase;letter-spacing:2px;
+  color:var(--y);margin-bottom:20px;font-weight:700;
+}
+footer ul{list-style:none;}
+footer ul li{margin-bottom:11px;}
+footer ul li a{
+  color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;
+  transition:color .2s;display:flex;align-items:center;gap:8px;
+}
+footer ul li a:hover{color:rgba(255,255,255,.85);}
+footer ul li a::before{content:'›';color:var(--y);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:14px;font-size:12px;color:rgba(255,255,255,.25);
+}
+.f-badge{
+  background:rgba(255,214,0,.1);border:1px solid rgba(255,214,0,.2);
+  padding:5px 16px;border-radius:100px;
+  font-size:11px;color:var(--y);font-weight:700;letter-spacing:1px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeSlideUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeIn{
+  from{opacity:0;}to{opacity:1;}
+}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* WHATSAPP FLOAT */
+.wa-float{
+  position:fixed;bottom:30px;right:30px;z-index:500;
+  width:58px;height:58px;background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;text-decoration:none;
+  box-shadow:0 8px 30px rgba(37,211,102,0.45);
+  animation:waPulse 2s ease infinite;
+}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 8px 30px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.4);}
+  50%{box-shadow:0 8px 30px rgba(37,211,102,0.45), 0 0 0 14px rgba(37,211,102,0);}
+}
+
+/* Mobile */
+@media(max-width:900px){
+  nav ul{display:none;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .areas-grid{grid-template-columns:repeat(2,1fr);}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .process-steps::before{display:none;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .trust-bar{flex-wrap:wrap;}
+  .trust-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);padding:14px 0;}
+}
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/90XXXXXXXXXX" class="wa-float" title="WhatsApp ile Ulaşın">💬</a>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="tb-left">
+    <div class="tb-item">📍 Mersin, Türkiye</div>
+    <div class="tb-item">✅ Sağlık Bakanlığı Onaylı</div>
+    <div class="tb-item">⚡ Aynı Gün Hizmet Garantisi</div>
+  </div>
+  <div class="tb-right">
+    <a href="tel:+90XXXXXXXXXX">📞 Hemen Ara</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <img src="logo.jpg" alt="Koçak İlaçlama Logo">
+    <div class="logo-txt">
+      <div class="logo-name">KOÇAK <span>İlaçlama</span></div>
+      <span class="logo-sub">Haşere Kontrol Hizmeti</span>
+    </div>
+  </a>
+  <ul>
+    <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#neden-biz">Neden Biz</a></li>
+    <li><a href="#alanlar">Uygulama Alanları</a></li>
+    <li><a href="#yorumlar">Yorumlar</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+  <a href="tel:+90XXXXXXXXXX" class="nav-cta">📞 Hemen Ara</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-anim"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Mersin'in 1 Numaralı Haşere Uzmanı
+      </div>
+      <h1>HAŞERELERİ<br><span class="y">YOK</span><br><span class="stroke">EDİYORUZ</span></h1>
+      <p class="hero-desc">
+        <strong>Garantili ilaçlama hizmeti</strong> ile evinizi, işyerinizi ve deponuzu zararlılardan temizliyoruz. <strong>Sağlık Bakanlığı onaylı</strong> ürünler, uzman ekip, aynı gün hizmet.
+      </p>
+      <div class="hero-btns">
+        <a href="tel:+90XXXXXXXXXX" class="btn-y">📞 Ücretsiz Keşif İste</a>
+        <a href="https://wa.me/90XXXXXXXXXX" class="btn-outline">💬 WhatsApp'tan Yaz</a>
+      </div>
+      <div class="hero-kpis">
+        <div class="kpi"><div class="kpi-n">GARANTİLİ</div><div class="kpi-l">Hizmet</div></div>
+        <div class="kpi"><div class="kpi-n">AYNI GÜN</div><div class="kpi-l">Müdahale</div></div>
+        <div class="kpi"><div class="kpi-n">%100</div><div class="kpi-l">Bakanlık Onaylı</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="logo-showcase">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="logo-center">
+          <img src="logo.jpg" alt="Logo">
+        </div>
+        <div class="fbadge fbadge-1">✅ Bakanlık Onaylı</div>
+        <div class="fbadge fbadge-2">⚡ Aynı Gün</div>
+        <div class="fbadge fbadge-3">📍 Mersin</div>
+        <div class="fbadge fbadge-4">🛡️ Garantili</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-strip">
+    <div class="scroll-track">
+      <span class="scroll-item">🏠 Ev İlaçlama <span class="scroll-sep"></span></span>
+      <span class="scroll-item">🏢 İşyeri İlaçlama <span class="scroll-sep"></span></span>
+      <span class="scroll-item">☕ Cafe & Restoran <span class="scroll-sep"></span></span>
+      <span class="scroll-item">📦 Depo İlaçlama <span class="scroll-sep"></span></span>
+      <span class="scroll-item">🦟 Sivrisinek <span class="scroll-sep"></span></span>
+      <span class="scroll-item">🐀 Fare & Kemirgen <span class="scroll-sep"></span></span>
+      <span class="scroll-item">⚡ Aynı Gün Hizmet <span class="scroll-sep"></span></span>
+      <span class="scroll-item">✅ Sağlık Bakanlığı Onaylı <span class="scroll-sep"></span></span>
+      <span class="scroll-item">🏠 Ev İlaçlama <span class="scroll-sep"></span></span>
+      <span class="scroll-item">🏢 İşyeri İlaçlama <span class="scroll-sep"></span></span>
+      <span class="scroll-item">☕ Cafe & Restoran <span class="scroll-sep"></span></span>
+      <span class="scroll-item">📦 Depo İlaçlama <span class="scroll-sep"></span></span>
+      <span class="scroll-item">🦟 Sivrisinek <span class="scroll-sep"></span></span>
+      <span class="scroll-item">🐀 Fare & Kemirgen <span class="scroll-sep"></span></span>
+      <span class="scroll-item">⚡ Aynı Gün Hizmet <span class="scroll-sep"></span></span>
+      <span class="scroll-item">✅ Sağlık Bakanlığı Onaylı <span class="scroll-sep"></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar reveal">
+  <div class="trust-item">
+    <div class="trust-icon">🏥</div>
+    <div class="trust-text"><h4>Sağlık Bakanlığı Onaylı</h4><p>Ruhsatlı ürün ve ekip</p></div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">⚡</div>
+    <div class="trust-text"><h4>Aynı Gün Hizmet</h4><p>Acil müdahale garantisi</p></div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🛡️</div>
+    <div class="trust-text"><h4>Garantili Sonuç</h4><p>Memnun kalmazsanız ücretsiz tekrar</p></div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">💬</div>
+    <div class="trust-text"><h4>WhatsApp Destek</h4><p>7/24 mesaj atın</p></div>
+  </div>
+</div>
+
+<!-- HİZMETLER -->
+<section class="services reveal" id="hizmetler">
+  <div class="sec-head">
+    <span class="sec-tag">Hizmetlerimiz</span>
+    <h2 class="sec-title">PROFESYONEL<br><span>İLAÇLAMA</span> HİZMETLERİ</h2>
+    <p class="sec-sub">Her türlü haşere sorununa karşı etkili, güvenli ve kalıcı çözümler sunuyoruz.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-card-num">01</div>
+      <div class="svc-ico">🏠</div>
+      <h3>Ev İlaçlama</h3>
+      <p>Hamam böceği, fare, pire, karınca ve tüm haşerelerden evinizi temizliyoruz. Aile ve çocuklar için güvenli ürünler.</p>
+      <span class="svc-badge">Çocuk & Evcil Hayvan Güvenli</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-card-num">02</div>
+      <div class="svc-ico">🏢</div>
+      <h3>İşyeri İlaçlama</h3>
+      <p>Ofis, mağaza ve iş merkezleri için profesyonel ilaçlama. Belge ve sertifika düzenlenir.</p>
+      <span class="svc-badge">Belge Verilir</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-card-num">03</div>
+      <div class="svc-ico">☕</div>
+      <h3>Cafe & Restoran</h3>
+      <p>Gıda işletmelerine özel ilaçlama protokolü. Hijyen belgesi garantisi, sağlıklı ortam.</p>
+      <span class="svc-badge">Gıda Güvenli Uygulama</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-card-num">04</div>
+      <div class="svc-ico">📦</div>
+      <h3>Depo İlaçlama</h3>
+      <p>Depo ve antrepolarda ürünlere zarar vermeden kemirgen ve haşere ilaçlaması.</p>
+      <span class="svc-badge">Büyük Alan Uzmanı</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-card-num">05</div>
+      <div class="svc-ico">🦟</div>
+      <h3>Sivrisinek & Sinek</h3>
+      <p>Yazın en büyük sorunu olan sivrisinek ve sineklere karşı etkili uzun süreli çözüm.</p>
+      <span class="svc-badge">Sezonluk Paket</span>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-card-num">06</div>
+      <div class="svc-ico">🐀</div>
+      <h3>Fare & Kemirgen</h3>
+      <p>Fare ve sıçanlar için tuzak ve ilaçlama yöntemlerini birlikte kullanarak kalıcı çözüm.</p>
+      <span class="svc-badge">Kalıcı Çözüm</span>
+    </div>
+  </div>
+</section>
+
+<!-- NEDEN BİZ -->
+<section class="why reveal" id="neden-biz">
+  <div class="sec-head">
+    <span class="sec-tag">Neden Biz?</span>
+    <h2 class="sec-title">GÜVEN VE<br><span>KALİTE</span> FARKIMIZ</h2>
+    <p class="sec-sub">Mersin'de on yıllardır tercih edilmemizin arkasındaki sebepler.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-ico">🏥</div>
+      <h4>Sağlık Bakanlığı Onaylı</h4>
+      <p>Tüm ürünlerimiz T.C. Sağlık Bakanlığı tarafından onaylıdır. İnsan ve çevre sağlığına saygılıyız.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-ico">⚡</div>
+      <h4>Aynı Gün Hizmet</h4>
+      <p>Sabah aradığınızda aynı gün ekibimiz kapınızda. Acil durumlarda öncelikli müdahale.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-ico">🛡️</div>
+      <h4>Garantili Sonuç</h4>
+      <p>Tüm ilaçlama işlemlerinde sonuç garantisi veriyoruz. Memnun kalmazsanız ücretsiz tekrar.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-ico">💰</div>
+      <h4>Uygun Fiyat</h4>
+      <p>Mersin'in en rekabetçi fiyatlarıyla kaliteli hizmet. Gizli ücret yok, net fiyat.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-ico">📋</div>
+      <h4>Belge & Sertifika</h4>
+      <p>İşletmeler için ilaçlama belgesi düzenliyoruz. Hijyen denetimleri için tüm evraklar hazır.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-ico">📱</div>
+      <h4>Kolay İletişim</h4>
+      <p>WhatsApp üzerinden fotoğraf paylaşın, anında fiyat teklifi alın.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UYGULAMA ALANLARI -->
+<section class="areas reveal" id="alanlar">
+  <div class="sec-head">
+    <span class="sec-tag">Uygulama Alanları</span>
+    <h2 class="sec-title">HER MEKÂNA<br><span>HİZMET</span> VERİYORUZ</h2>
+    <p class="sec-sub">Ev ve işyerinden okul ve otele kadar Mersin'in her noktasındayız.</p>
+  </div>
+  <div class="areas-grid">
+    <div class="area-box reveal"><span class="area-ico">🏠</span><div class="area-name">Konut & Daire</div></div>
+    <div class="area-box reveal"><span class="area-ico">🏢</span><div class="area-name">Ofis & İşyeri</div></div>
+    <div class="area-box reveal"><span class="area-ico">☕</span><div class="area-name">Cafe & Restoran</div></div>
+    <div class="area-box reveal"><span class="area-ico">📦</span><div class="area-name">Depo & Antrepo</div></div>
+    <div class="area-box reveal"><span class="area-ico">🏫</span><div class="area-name">Okul & Kreş</div></div>
+    <div class="area-box reveal"><span class="area-ico">🏨</span><div class="area-name">Otel & Pansiyon</div></div>
+    <div class="area-box reveal"><span class="area-ico">🏥</span><div class="area-name">Klinik & Sağlık</div></div>
+    <div class="area-box reveal"><span class="area-ico">🏗️</span><div class="area-name">İnşaat & Site</div></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process reveal">
+  <div class="sec-head">
+    <span class="sec-tag">Nasıl Çalışıyoruz?</span>
+    <h2 class="sec-title">4 ADIMDA<br><span>ÇÖZÜM</span></h2>
+  </div>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-circle">1</div>
+      <h3>Bizi Arayın</h3>
+      <p>Telefon veya WhatsApp ile bize ulaşın. Durumu kısaca anlatın.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-circle">2</div>
+      <h3>Ücretsiz Keşif</h3>
+      <p>Ekibimiz gelir, sorunu yerinde inceler, fiyat teklifi sunar.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-circle">3</div>
+      <h3>İlaçlama</h3>
+      <p>Onay sonrası aynı gün veya randevu ile ilaçlama yapılır.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-circle">4</div>
+      <h3>Garanti</h3>
+      <p>Sonuç garantisi! Tekrar sorun çıkarsa ücretsiz müdahale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews reveal" id="yorumlar">
+  <div class="sec-head">
+    <span class="sec-tag">Müşteri Yorumları</span>
+    <h2 class="sec-title">MÜŞTERİLERİMİZ<br><span>NE DİYOR?</span></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"Evimizde uzun süredir hamam böceği sorunu vardı. Koçak İlaçlama ekibi geldi, aynı gün müdahale etti. Şu an hiç sorun yok. Kesinlikle tavsiye ederim!"</p>
+      <div class="reviewer">
+        <div class="rev-av">AY</div>
+        <div><div class="rev-name">Ayşe Y.</div><div class="rev-loc">Yenişehir, Mersin</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"Restoranımız için ilaçlama belgesi gerekiyordu. Hem hızlı hem de profesyonel hizmet aldık. Fiyatlar çok uygun, belgeyi de hemen verdiler."</p>
+      <div class="reviewer">
+        <div class="rev-av">MK</div>
+        <div><div class="rev-name">Mehmet K.</div><div class="rev-loc">Mezitli, Mersin</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"Depomuzdaki fare sorununu çözemedik. Koçak İlaçlama geldi, kapsamlı bir müdahale yaptı. Artık hiç sorun yok. Harika hizmet!"</p>
+      <div class="reviewer">
+        <div class="rev-av">FA</div>
+        <div><div class="rev-name">Fatma A.</div><div class="rev-loc">Toroslar, Mersin</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="iletisim">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <h2>BUGÜN ARAYIN,<br>BUGÜN ÇÖZÜM!</h2>
+    <div class="cta-btns">
+      <a href="tel:+90XXXXXXXXXX" class="btn-bk">📞 Hemen Ara</a>
+      <a href="https://wa.me/90XXXXXXXXXX" class="btn-wh">💬 WhatsApp'tan Yaz</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-logo">
+        <img src="logo.jpg" alt="Koçak İlaçlama">
+        <div class="f-logo-txt">
+          <div class="f-name">KOÇAK <span>İlaçlama</span></div>
+          <div class="f-sub">Haşere Kontrol Hizmeti — Mersin</div>
+        </div>
+      </div>
+      <p class="f-desc">Mersin'de garantili haşere ilaçlama hizmeti. Sağlık Bakanlığı onaylı ürünler, uzman ekip, aynı gün müdahale.</p>
+      <div class="f-socials">
+        <a href="https://www.instagram.com/kocak.ilaclama" class="f-social">📸</a>
+        <a href="https://wa.me/90XXXXXXXXXX" class="f-social">💬</a>
+        <a href="tel:+90XXXXXXXXXX" class="f-social">📞</a>
+      </div>
+    </div>
+    <div>
+      <h4>Hizmetler</h4>
+      <ul>
+        <li><a href="#">Ev İlaçlama</a></li>
+        <li><a href="#">İşyeri İlaçlama</a></li>
+        <li><a href="#">Cafe & Restoran</a></li>
+        <li><a href="#">Depo İlaçlama</a></li>
+        <li><a href="#">Fare & Kemirgen</a></li>
+        <li><a href="#">Sivrisinek</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Mersin Bölgeleri</h4>
+      <ul>
+        <li><a href="#">Yenişehir</a></li>
+        <li><a href="#">Mezitli</a></li>
+        <li><a href="#">Toroslar</a></li>
+        <li><a href="#">Akdeniz</a></li>
+        <li><a href="#">Tarsus</a></li>
+        <li><a href="#">Tüm İlçeler</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>İletişim</h4>
+      <ul>
+        <li><a href="#">📍 Mersin, Türkiye</a></li>
+        <li><a href="tel:+90XXXXXXXXXX">📞 0 XXX XXX XX XX</a></li>
+        <li><a href="https://wa.me/90XXXXXXXXXX">💬 WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/kocak.ilaclama">📸 @kocak.ilaclama</a></li>
+        <li><a href="#">⏰ 07:00 – 22:00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Koçak Haşere İlaçlama — Tüm hakları saklıdır.</span>
+    <span class="f-badge">📍 MERSİN</span>
+    <span>Gizlilik Politikası</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if(window.scrollY > 80){
+    nav.style.background = 'rgba(10,10,10,0.99)';
+    nav.style.borderBottomColor = 'rgba(255,214,0,0.3)';
+  } else {
+    nav.style.background = 'rgba(10,10,10,0.97)';
+    nav.style.borderBottomColor = 'rgba(255,214,0,0.15)';
+  }
+});
+
+// Counter animation for trust numbers
+function animateNum(el, target, suffix){
+  let start = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    start += step;
+    if(start >= target){ start = target; clearInterval(timer); }
+    el.textContent = Math.floor(start) + suffix;
+  }, 25);
+}
+</script>
+</body>
+</html>
